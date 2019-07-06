@@ -12,4 +12,4 @@ install:
 script:
     - python backend/manage.py test
 after_success:
-  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD registry.cn-hangzhou.aliyuncs.com
+  - echo "$DOCKER_PASSWORD" | docker login -u $DOCKER_USERNAME registry.cn-hangzhou.aliyuncs.com --password-stdin
