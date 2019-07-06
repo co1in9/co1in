@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.http import JsonResponse
+
+def version(request):
+    return JsonResponse({
+        'version': '0.1'
+    })
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/version', version),
 ]
