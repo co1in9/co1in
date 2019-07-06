@@ -13,6 +13,6 @@ script:
     - python backend/manage.py test
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u $DOCKER_USERNAME registry.cn-hangzhou.aliyuncs.com --password-stdin
-  - docker build -t co1in .
+  - docker build -t co1in backend/
   - docker tag co1in:latest registry.cn-hangzhou.aliyuncs.com/co1in/co1in:latest
   - docker push registry.cn-hangzhou.aliyuncs.com/co1in/co1in:latest
